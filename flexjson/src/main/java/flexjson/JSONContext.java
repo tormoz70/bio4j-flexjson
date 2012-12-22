@@ -23,11 +23,11 @@ import java.util.*;
 
 public class JSONContext {
 
-    private static ThreadLocal<JSONContext> context = new ThreadLocal<JSONContext>() {
-        protected JSONContext initialValue() {
-            return new JSONContext();
-        }
-    };
+//    private static ThreadLocal<JSONContext> context = new ThreadLocal<JSONContext>() {
+//        protected JSONContext initialValue() {
+//            return new JSONContext();
+//        }
+//    };
 
     private String rootName;
     private OutputHandler out;
@@ -319,16 +319,16 @@ public class JSONContext {
      *
      * @return
      */
-    public static JSONContext get() {
-        return context.get();
-    }
+//    public static JSONContext get() {
+//        return context.get();
+//    }
 
     /**
      * static moethod to clean up thread when serialization is complete
      */
-    public static void cleanup() {
-        context.remove();
-    }
+//    public static void cleanup() {
+//        context.remove();
+//    }
 
     // INCLUDE/EXCLUDE METHODS
 
@@ -386,7 +386,7 @@ public class JSONContext {
             return expression.isIncluded();
         }
 
-        String rootName = context.get().getRootName();
+        String rootName = this.getRootName();
 
         /*
          *  We have a double check here because of the way lists are handled in a shallow. Normally

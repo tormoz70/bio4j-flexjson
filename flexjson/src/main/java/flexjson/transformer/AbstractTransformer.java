@@ -19,8 +19,13 @@ import flexjson.JSONContext;
 
 public abstract class AbstractTransformer implements Transformer, Inline {
 
+	private JSONContext context;
+	void setContext(JSONContext context){
+		this.context = context;
+	}
+	
     public JSONContext getContext() {
-        return JSONContext.get();
+        return this.context;
     }
 
     public Boolean isInline() {
